@@ -1,0 +1,46 @@
+int potenciometro = A0;
+const int ledVerde = 2;
+const int ledAmarelo = 4;
+const int ledLaranja = 7;
+const int ledVermelho = 8;
+void setup(){
+  pinMode(potenciometro, INPUT);
+  pinMode(ledVerde, OUTPUT);
+  pinMode(ledAmarelo, OUTPUT);
+  pinMode(ledLaranja, OUTPUT);
+  pinMode(ledVermelho, OUTPUT);
+  Serial.begin(9600);
+ }
+
+void loop(){
+  Serial.println(analogRead(potenciometro));
+  //led verde
+  if (analogRead(potenciometro) >= 0 && analogRead(potenciometro) <= 255){
+  	digitalWrite(ledVerde, HIGH);
+  }
+  else{
+  	digitalWrite(ledVerde, LOW);
+  }
+  //led amarelo
+  if (analogRead(potenciometro) >= 256 && analogRead(potenciometro) <= 511){
+  	digitalWrite(ledAmarelo, HIGH);
+  }
+  else{
+  	digitalWrite(ledAmarelo, LOW);
+  }
+  //led laranja
+  if (analogRead(potenciometro) >= 512 && analogRead(potenciometro) <= 800){
+  	digitalWrite(ledLaranja, HIGH);
+  }
+  else{
+  	digitalWrite(ledLaranja, LOW);
+  }
+  //led vermelho
+  if (analogRead(potenciometro) >= 801 ){
+  	digitalWrite(ledVermelho, HIGH);
+  }
+  else{
+  	digitalWrite(ledVermelho, LOW);
+  }
+     delay(1000); 
+}
